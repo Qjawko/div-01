@@ -1,13 +1,13 @@
 package main
 
 import (
-	"fmt"
-
 	student ".."
+	"github.com/01-edu/z01"
 )
 
 func main() {
-	arg1 := 4
-	arg2 := 3
-	fmt.Println(student.RecursivePower(arg1, arg2))
+	student.PrintNbrBase(125, "0123456789")
+	z01.PrintRune('\n')
+	student.PrintNbrBase(125, "aa")
+	z01.PrintRune('\n')
 }
