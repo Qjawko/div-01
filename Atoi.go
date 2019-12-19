@@ -11,7 +11,7 @@ func Atoi(s string) int {
 			isNegative = true
 		}
 	}
-	len := stringLen(str)
+	len := StringLen(str)
 
 	power := 1
 
@@ -32,7 +32,7 @@ func Atoi(s string) int {
 	return result
 }
 
-func stringLen(s []rune) int {
+func StringLen(s []rune) int {
 	count := 0
 	for range s {
 		count++

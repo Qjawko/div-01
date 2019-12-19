@@ -10,6 +10,22 @@ func PrintNbrBase(nbr int, base string) {
 		return
 	}
 
+	if nbr < 0 {
+		nbr *= -1
+		z01.PrintRune('-')
+	}
+
+	baseLen := StringLen([]rune(base))
+	result := ""
+
+	//fmt.Println(baseLen)
+
+	for nbr != 0 {
+		result = string(base[nbr%baseLen]) + result
+		nbr /= baseLen
+	}
+
+	PrintString(result)
 }
 
 func PrintString(s string) {
@@ -19,7 +35,7 @@ func PrintString(s string) {
 }
 
 func checkBase(base string) bool {
-	if stringLen([]rune(base)) < 2 {
+	if StringLen([]rune(base)) < 2 {
 		return false
 	}
 
@@ -29,7 +45,7 @@ func checkBase(base string) bool {
 func UniqueChars(s string) bool {
 	runes := []rune(s)
 	for i, ch := range runes {
-		for j := i + 1; j < stringLen(runes); j++ {
+		for j := i + 1; j < StringLen(runes); j++ {
 			if ch == runes[j] && i != j {
 				return false
 			}
