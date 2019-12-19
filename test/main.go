@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	student.PrintNbrBase(125, "0123456789")
+	student.PrintNbrBase(125, "876")
 	z01.PrintRune('\n')
-	student.PrintNbrBase(-125, "01")
+	student.PrintNbrBase(87, "01")
 	z01.PrintRune('\n')
 	student.PrintNbrBase(125, "0123456789ABCDEF")
 	z01.PrintRune('\n')
@@ -17,3 +17,7 @@ func main() {
 	student.PrintNbrBase(125, "aa")
 	z01.PrintRune('\n')
 }
+
+//111101
+
+//1010111
