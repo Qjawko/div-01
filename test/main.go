@@ -1,21 +1,15 @@
 package main
 
 import (
+	"fmt"
+
 	student ".."
-	"github.com/01-edu/z01"
 )
 
 func main() {
-	student.PrintNbrBase(125, "876")
-	z01.PrintRune('\n')
-	student.PrintNbrBase(87, "01")
-	z01.PrintRune('\n')
-	student.PrintNbrBase(125, "0123456789ABCDEF")
-	z01.PrintRune('\n')
-	student.PrintNbrBase(-125, "choumi")
-	z01.PrintRune('\n')
-	student.PrintNbrBase(125, "aa")
-	z01.PrintRune('\n')
+	str := "    Hello     how are you?    "
+	fmt.Println(student.SplitWhiteSpaces(str))
+	fmt.Println(len(student.SplitWhiteSpaces(str)))
 }
 
 //111101
