@@ -7,11 +7,6 @@ import (
 )
 
 func main() {
-	str := "    Hello     how are you?    "
-	fmt.Println(student.SplitWhiteSpaces(str))
-	fmt.Println(len(student.SplitWhiteSpaces(str)))
+	str := "HelloHAhowHAareHAyou?"
+	fmt.Println(student.Split(str, "HA"))
 }
-
-//111101
-
-//1010111
