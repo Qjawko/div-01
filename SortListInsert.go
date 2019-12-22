@@ -25,7 +25,6 @@ func SortListInsert(l *NodeI, data_ref int) *NodeI {
 	if iterator.Data < node.Data {
 		iterator.Next = node
 	}
-
 	return l
 }
 

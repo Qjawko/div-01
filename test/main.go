@@ -31,16 +31,6 @@ func listPushBack(l *student.NodeI, data int) *student.NodeI {
 
 func main() {
 
-	var link *student.NodeI
-
-	link = listPushBack(link, 1)
-	link = listPushBack(link, 4)
-	link = listPushBack(link, 9)
-
-	PrintList(link)
-
-	link = student.SortListInsert(link, -2)
-	link = student.SortListInsert(link, 2)
-	link = student.SortListInsert(link, 10)
-	PrintList(link)
+	str := "Hello how are you?"
+	fmt.Println(student.SplitWhiteSpaces(str))
 }
