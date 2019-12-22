@@ -13,12 +13,6 @@ func AdvancedSortWordArr(array []string, f func(a, b string) int) {
 	}
 }
 
-func SwapStrings(a, b *string) {
-	buffer := *a
-	*a = *b
-	*b = buffer
-}
-
 func StringArrLen(array []string) int {
 	count := 0
 	for range array {

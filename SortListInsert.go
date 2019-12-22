@@ -14,7 +14,7 @@ func SortListInsert(l *NodeI, data_ref int) *NodeI {
 
 	iterator := l
 	for iterator.Next != nil {
-		if iterator.Data < node.Data && iterator.Next.Data > node.Data {
+		if iterator.Data < node.Data {
 			node.Next = iterator.Next
 			iterator.Next = node
 		}

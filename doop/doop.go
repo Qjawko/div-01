@@ -64,7 +64,6 @@ func main() {
 		student.PrintString(Itoa(result))
 		z01.PrintRune('\n')
 	default:
-		student.PrintString("def")
 		student.PrintString("0\n")
 	}
 
