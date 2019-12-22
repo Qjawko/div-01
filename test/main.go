@@ -7,6 +7,8 @@ import (
 )
 
 func main() {
-	str := "HelloHAhowHAareHAyou?"
-	fmt.Println(student.Split(str, "HA"))
+	result := []string{"a", "A", "1", "b", "B", "2", "c", "C", "3"}
+	student.AdvancedSortWordArr(result, student.Compare)
+
+	fmt.Println(result)
 }
