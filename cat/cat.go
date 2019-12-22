@@ -1,7 +1,10 @@
 package main
 
 import (
+	"io/ioutil"
 	"os"
+
+	"github.com/01-edu/z01"
 
 	student ".."
 )
@@ -29,6 +32,16 @@ func main() {
 			} else {
 				n++
 			}
+		}
+	} else {
+		for _, file := range args {
+			bytes, err := ioutil.ReadFile(file)
+			if err != nil {
+				os.Stdout.WriteString(err.Error() + "\n")
+				return
+			}
+			os.Stdout.Write(bytes)
+			z01.PrintRune('\n')
 		}
 	}
 }
