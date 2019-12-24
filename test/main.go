@@ -30,18 +30,15 @@ func listPushBack(l *student.NodeI, data int) *student.NodeI {
 }
 
 func main() {
-	// var link *student.NodeI
-	// var link2 *student.NodeI
+	var link *student.NodeI
+	var link2 *student.NodeI
 
-	// link = listPushBack(link, 3)
-	// link = listPushBack(link, 5)
-	// link = listPushBack(link, 7)
+	link = listPushBack(link, 3)
+	link = listPushBack(link, 5)
+	link = listPushBack(link, 7)
 
-	// link2 = listPushBack(link2, -2)
-	// link2 = listPushBack(link2, 9)
+	link2 = listPushBack(link2, -2)
+	link2 = listPushBack(link2, 9)
 
-	// PrintList(student.SortedListMerge(link2, link))
-
-	nbits := student.ActiveBits(55)
-	fmt.Println(nbits)
+	PrintList(student.SortedListMerge(link2, link))
 }
