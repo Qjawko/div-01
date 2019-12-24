@@ -6,39 +6,43 @@ import (
 	student ".."
 )
 
-func PrintList(l *student.NodeI) {
-	it := l
+func PrintList(l *student.List) {
+	it := l.Head
 	for it != nil {
 		fmt.Print(it.Data, " -> ")
 		it = it.Next
 	}
+
 	fmt.Print(nil, "\n")
 }
 
-func listPushBack(l *student.NodeI, data int) *student.NodeI {
-	n := &student.NodeI{Data: data}
-
-	if l == nil {
-		return n
-	}
-	iterator := l
-	for iterator.Next != nil {
-		iterator = iterator.Next
-	}
-	iterator.Next = n
-	return l
-}
-
 func main() {
-	var link *student.NodeI
-	var link2 *student.NodeI
+	link := &student.List{}
+	link2 := &student.List{}
 
-	link = listPushBack(link, 3)
-	link = listPushBack(link, 5)
-	link = listPushBack(link, 7)
+	fmt.Println("----normal state----")
+	student.ListPushBack(link2, 1)
+	PrintList(link2)
+	student.ListRemoveIf(link2, 1)
+	fmt.Println("------answer-----")
+	PrintList(link2)
+	fmt.Println()
 
-	link2 = listPushBack(link2, -2)
-	link2 = listPushBack(link2, 9)
+	fmt.Println("----normal state----")
+	student.ListPushBack(link, 1)
+	student.ListPushBack(link, "Hello")
+	student.ListPushBack(link, 1)
+	student.ListPushBack(link, "There")
+	student.ListPushBack(link, 1)
+	student.ListPushBack(link, 1)
+	student.ListPushBack(link, "How")
+	student.ListPushBack(link, 1)
+	student.ListPushBack(link, "are")
+	student.ListPushBack(link, "you")
+	student.ListPushBack(link, 1)
+	PrintList(link)
 
-	PrintList(student.SortedListMerge(link2, link))
+	student.ListRemoveIf(link, 1)
+	fmt.Println("------answer-----")
+	PrintList(link)
 }
