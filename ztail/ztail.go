@@ -38,7 +38,7 @@ func main() {
 
 				var bytes []byte
 				var i int64 = 0
-				for ; i <= stat.Size()-int64(nbr); i++ {
+				for ; i <= stat.Size(); i++ {
 					bytes = append(bytes, '\x00')
 				}
 
@@ -58,16 +58,16 @@ func main() {
 
 				var bytes []byte
 				var i int64 = 0
-				for ; i <= int64(nbr); i++ {
+				for ; i <= int64(stat.Size()); i++ {
 					bytes = append(bytes, '\x00')
 				}
 
-				if _, err := file.ReadAt(bytes, stat.Size()-int64(nbr)); err != nil {
+				if _, err := file.Read(bytes); err != nil {
 					student.PrintString(err.Error())
 					os.Exit(5)
 				}
 
-				if _, err := fmt.Printf("%s", bytes); err != nil {
+				if _, err := fmt.Printf("%s", bytes[:nbr*-1]); err != nil {
 					student.PrintString(err.Error())
 					os.Exit(5)
 				}
@@ -78,15 +78,16 @@ func main() {
 
 				var bytes []byte
 				var i int64 = 0
-				for ; i <= int64(nbr); i++ {
+				for ; i <= int64(stat.Size()); i++ {
 					bytes = append(bytes, '\x00')
 				}
-				if _, err := file.ReadAt(bytes, stat.Size()-int64(nbr)); err != nil {
+
+				if _, err := file.Read(bytes); err != nil {
 					student.PrintString(err.Error())
 					os.Exit(5)
 				}
 
-				if _, err := fmt.Printf("%s", bytes); err != nil {
+				if _, err := fmt.Printf("%s", bytes[:nbr]); err != nil {
 					student.PrintString(err.Error())
 					os.Exit(5)
 				}
