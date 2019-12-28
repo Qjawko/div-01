@@ -24,7 +24,7 @@ func SplitWhiteSpaces(str string) []string {
 func CleanWhiteSpaces(str string) string {
 	count := 0
 	for _, ch := range str {
-		if ch == ' ' {
+		if ch == ' ' || ch == '\t' || ch == '\n' {
 			count++
 		} else {
 			break
@@ -33,7 +33,7 @@ func CleanWhiteSpaces(str string) string {
 
 	i := StringLen([]rune(str)) - 1
 	for ; i >= 0; i-- {
-		if str[i] != ' ' {
+		if str[i] != ' ' || str[i] == '\t' || str[i] == '\n' {
 			break
 		}
 	}
@@ -42,7 +42,9 @@ func CleanWhiteSpaces(str string) string {
 	result := ""
 
 	for i := range str {
-		if str[i] == ' ' && str[i+1] == ' ' {
+		if str[i] == ' ' && str[i+1] == ' ' ||
+			str[i] == '\t' && str[i+1] == '\t' ||
+			str[i] == '\n' && str[i+1] == '\n' {
 			continue
 		} else {
 			result += string(str[i])

@@ -4,10 +4,11 @@ func AtoiBase(nbr string, base string) int {
 	if checkBase(base) == false {
 		return 0
 	}
-	power := 1
+
+	power := 1 //stepen'
 	result := 0
 	for i := StringLen([]rune(nbr)) - 1; i >= 0; i-- {
-		id := getIdFrom(rune(nbr[i]), base)
+		id := getIdFrom(nbr[i], base)
 		if id != -1 {
 			result += id * power
 			power *= StringLen([]rune(base))
@@ -19,9 +20,9 @@ func AtoiBase(nbr string, base string) int {
 	return result
 }
 
-func getIdFrom(r rune, s string) int {
+func getIdFrom(r byte, s string) int {
 	for i, ch := range s {
-		if ch == r {
+		if ch == rune(r) {
 			return i
 		}
 	}
