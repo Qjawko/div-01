@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	root := &student.TreeNode{Data: "4"}
-	student.BTreeInsertData(root, "1")
-	student.BTreeInsertData(root, "7")
-	student.BTreeInsertData(root, "5")
-	student.BTreeApplyByLevel(root, fmt.Println)
+	fmt.Println(student.AtoiBase("125", "0123456789"))
+	fmt.Println(student.AtoiBase("1111101", "01"))
+	fmt.Println(student.AtoiBase("7D", "0123456789ABCDEF"))
+	fmt.Println(student.AtoiBase("uoi", "choumi"))
+	fmt.Println(student.AtoiBase("bbbbbab", "-ab"))
 }

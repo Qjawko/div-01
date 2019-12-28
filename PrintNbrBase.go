@@ -34,12 +34,22 @@ func PrintString(s string) {
 	}
 }
 
+func Countains(r rune, s string) bool {
+	for _, ch := range s {
+		if ch == r {
+			return true
+		}
+	}
+
+	return false
+}
+
 func checkBase(base string) bool {
 	if StringLen([]rune(base)) < 2 {
 		return false
 	}
 
-	return UniqueChars(base)
+	return UniqueChars(base) && !(Countains('-', base) || Countains('+', base))
 }
 
 func UniqueChars(s string) bool {
