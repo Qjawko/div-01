@@ -36,14 +36,67 @@ func main() {
 
 	switch args[1] {
 	case "+":
-		result := firstNumber + secondNumber
-		student.PrintString(Itoa(result))
-		z01.PrintRune('\n')
+
+		if firstNumber > 0 && secondNumber > 0 {
+			if firstNumber > INT_MAX-secondNumber {
+				result := firstNumber + secondNumber
+				student.PrintString(Itoa(result))
+				z01.PrintRune('\n')
+			}
+		}
+
+		if firstNumber < 0 && secondNumber < 0 {
+			if firstNumber < INT_MIN-secondNumber {
+				result := firstNumber + secondNumber
+				student.PrintString(Itoa(result))
+				z01.PrintRune('\n')
+			}
+		}
+
 	case "-":
+		if firstNumber < 0 && secondNumber > 0 {
+			if firstNumber < INT_MIN+secondNumber {
+				student.PrintString("0\n")
+				return
+			}
+		}
+
+		if firstNumber > 0 && secondNumber < 0 {
+			if firstNumber < INT_MAX+secondNumber {
+				student.PrintString("0\n")
+				return
+			}
+		}
+
 		result := firstNumber - secondNumber
 		student.PrintString(Itoa(result))
 		z01.PrintRune('\n')
 	case "*":
+		if firstNumber < 0 && secondNumber < 0 {
+			if firstNumber < INT_MAX/secondNumber {
+				student.PrintString("0\n")
+				return
+			}
+		}
+		if firstNumber > 0 && secondNumber > 0 {
+			if firstNumber > INT_MAX/secondNumber {
+				student.PrintString("0\n")
+				return
+			}
+		}
+		if firstNumber < 0 && secondNumber > 0 {
+			if firstNumber < INT_MIN/secondNumber {
+				student.PrintString("0\n")
+				return
+			}
+		}
+		if firstNumber > 0 && secondNumber < 0 {
+			if firstNumber > INT_MIN/secondNumber {
+				student.PrintString("0\n")
+				return
+			}
+		}
+
 		result := firstNumber * secondNumber
 		student.PrintString(Itoa(result))
 		z01.PrintRune('\n')
