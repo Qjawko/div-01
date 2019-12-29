@@ -1,7 +1,5 @@
 package student
 
-import "fmt"
-
 func SplitWhiteSpaces(str string) []string {
 	str = CleanWhiteSpaces(str)
 	len := StringLen([]rune(str))
@@ -44,7 +42,7 @@ func CleanWhiteSpaces(str string) string {
 	result := ""
 
 	for i := range str {
-		if i + 1>= StringLen([]rune(str)) {
+		if i+1 >= StringLen([]rune(str)) {
 			result += string(str[i])
 			break
 		}
