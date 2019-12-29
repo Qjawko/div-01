@@ -1,5 +1,7 @@
 package student
 
+import "fmt"
+
 func SplitWhiteSpaces(str string) []string {
 	str = CleanWhiteSpaces(str)
 	len := StringLen([]rune(str))
@@ -33,7 +35,7 @@ func CleanWhiteSpaces(str string) string {
 
 	i := StringLen([]rune(str)) - 1
 	for ; i >= 0; i-- {
-		if str[i] != ' ' || str[i] == '\t' || str[i] == '\n' {
+		if str[i] != ' ' || str[i] != '\t' || str[i] != '\n' {
 			break
 		}
 	}
@@ -42,9 +44,11 @@ func CleanWhiteSpaces(str string) string {
 	result := ""
 
 	for i := range str {
-		if str[i] == ' ' && str[i+1] == ' ' ||
-			str[i] == '\t' && str[i+1] == '\t' ||
-			str[i] == '\n' && str[i+1] == '\n' {
+		if i + 1>= StringLen([]rune(str)) {
+			result += string(str[i])
+			break
+		}
+		if checkForWhiteSpaces(str[i], str[i+1]) {
 			continue
 		} else {
 			result += string(str[i])
@@ -63,4 +67,16 @@ func countChars(str string, r rune) int {
 	}
 
 	return count
+}
+
+func checkForWhiteSpaces(b, next byte) bool {
+	return b == ' ' && next == ' ' ||
+		b == '\t' && next == '\t' ||
+		b == '\n' && next == '\n' ||
+		b == ' ' && next == '\t' ||
+		b == ' ' && next == '\n' ||
+		b == '\t' && next == ' ' ||
+		b == '\t' && next == '\n' ||
+		b == '\n' && next == ' ' ||
+		b == '\n' && next == '\t'
 }
