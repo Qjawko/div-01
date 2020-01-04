@@ -17,41 +17,41 @@ func main() {
 
 	if contains(args, "-c") {
 		if student.StringArrLen(args) == 3 {
-			nbr, tailErr := Atoi(args[1])
+			nbr, tailErr := Atoi(args[1]) //kolvo symbols kototrie nado vyvesti
 			if tailErr != nil {
 				student.PrintString(tailErr.Error())
 				os.Exit(tailErr.Code())
 			}
 
-			file, err := os.OpenFile(args[2], os.O_RDONLY, 0700)
+			file, err := os.OpenFile(args[2], os.O_RDONLY, 0700) //otkrivaem file
 			if err != nil {
 				student.PrintString(err.Error())
 				os.Exit(5)
 			}
 			defer file.Close()
 
-			switch args[1][0] {
-			case '+':
+			switch args[1][0] { //proverka na znak 4isla
+			case '+': //ne vivodit poslednie byte
 				//file.Seek(int64(nbr), 0)
 
-				stat, _ := file.Stat()
+				stat, _ := file.Stat() //beru statistiku file
 
 				var bytes []byte
 				var i int64 = 0
-				for ; i <= stat.Size(); i++ {
+				for ; i <= stat.Size(); i++ { //sozdayu massiv ravniy razmeru file
 					bytes = append(bytes, '\x00')
 				}
 
-				if _, err := file.Read(bytes); err != nil {
+				if _, err := file.Read(bytes); err != nil { //zapisyvayu v massiv soderzhimoe file
 					student.PrintString(err.Error())
 					os.Exit(5)
 				}
 
-				if _, err := fmt.Printf("%s", bytes); err != nil {
+				if _, err := fmt.Printf("%s", bytes); err != nil { //vivod bytes
 					student.PrintString(err.Error())
 					os.Exit(5)
 				}
-			case '-':
+			case '-': //vyvodit poslendie nbr bytes
 				//file.Seek(int64(nbr), 2)
 
 				stat, _ := file.Stat()
@@ -67,11 +67,11 @@ func main() {
 					os.Exit(5)
 				}
 
-				if _, err := fmt.Printf("%s", bytes[:nbr*-1]); err != nil {
+				if _, err := fmt.Printf("%s", bytes[:nbr*-1]); err != nil { 
 					student.PrintString(err.Error())
 					os.Exit(5)
 				}
-			default:
+			default: //tak zhe kak i minus
 				//file.Seek(int64(nbr), 2)
 
 				stat, _ := file.Stat()
@@ -93,7 +93,7 @@ func main() {
 				}
 			}
 		} else {
-			student.PrintString("ztail: option requires an argument -- 'c'")
+			student.PrintString("ztail: option requires an argument -- 'c'\n")
 			os.Exit(22)
 		}
 	}
