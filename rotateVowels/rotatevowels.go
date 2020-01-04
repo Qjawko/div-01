@@ -11,6 +11,7 @@ func main() {
 	args := os.Args[1:]
 	if stringArrLen(args) == 0 {
 		z01.PrintRune('\n')
+		return
 	}
 
 	j := 0

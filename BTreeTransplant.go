@@ -13,7 +13,7 @@ func BTreeSearchItem(root *TreeNode, elem string) *TreeNode {
 	if root.Data == elem {
 		return root
 	}
-
+		//5         2
 	if root.Data > elem {
 		root = BTreeSearchItem(root.Left, elem)
 	} else {
@@ -25,14 +25,14 @@ func BTreeSearchItem(root *TreeNode, elem string) *TreeNode {
 
 func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 	if root == nil {
-		return &TreeNode{Data: data}
+		return &TreeNode{Data: data}  //create node with new data ex : 6 
 	}
-
+    //     7        6
 	if root.Data > data {
-		root.Left = BTreeInsertData(root.Left, data)
+		root.Left = BTreeInsertData(root.Left, data) // nil   6
 		root.Left.Parent = root
 	} else {
-		root.Right = BTreeInsertData(root.Right, data)
+		root.Right = BTreeInsertData(root.Right, data) // 7   6
 		root.Right.Parent = root
 	}
 
